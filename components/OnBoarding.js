@@ -4,7 +4,8 @@ import {
   Text,
   Button,
   Dimensions,
-  AsyncStorage
+  AsyncStorage,
+  StyleSheet
 } from "react-native";
 import styled from "styled-components/native";
 import Modal from "react-native-modalbox";
@@ -18,6 +19,18 @@ const Pane = styled.View`
   justify-content: center;
 `;
 
+const styles = StyleSheet.create({
+  stretch: {
+    width: 100,
+    height: 77,
+    margin: 20
+  },
+  message: {
+    fontSize: 15,
+    margin: 8
+  }
+});
+
 class OnBoarding extends React.Component {
   state = { isOpen: AsyncStorage.getItem("hasDoneOnBoarding") == null };
 
@@ -30,22 +43,22 @@ class OnBoarding extends React.Component {
           style={{ flex: 1, backgroundColor: "#eee" }}
         >
           <Pane>
-            <Text>flor</Text>
-            <Text>１輪の花を届けよう</Text>
+            <Text style={styles.message}>１輪の花を、届けよう。</Text>
           </Pane>
           <Pane>
-            <Text>田舎のおばあちゃんに。</Text>
-            <Text>遠距離の恋人に。</Text>
-            <Text>卒業する先輩に。</Text>
-            <Text>たまにしか会えない実家の両親に。</Text>
+            <Text style={styles.message}>田舎のおばあちゃんに。</Text>
+            <Text style={styles.message}>遠距離の恋人に。</Text>
+            <Text style={styles.message}>卒業する先輩に。</Text>
+            <Text style={styles.message}>たまにしか会えない実家の両親に。</Text>
           </Pane>
           <Pane>
-            <Text>お花を選んで気軽に贈ろう</Text>
+            <Text style={styles.message}>送りたいお花を選ぶだけ。</Text>
           </Pane>
           <Pane>
-            <Text>あなたの想いを届けよう</Text>
+            <Text style={styles.message}>あなたの想いを、届けよう。</Text>
             <Button
               title="はじめる"
+              color="#DE87BB"
               onPress={() => {
                 this.setState({ isOpen: false });
                 AsyncStorage.setItem("hasDoneOnBoarding", "true");
