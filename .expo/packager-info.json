@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 13612,
+  "packagerPort": 19003,
+  "packagerPid": 26905,
   "expoServerNgrokUrl": "https://mx-d8f.moriyuu.flor-rn.exp.direct",
   "packagerNgrokUrl": "https://packager.mx-d8f.moriyuu.flor-rn.exp.direct",
-  "ngrokPid": 13634
+  "ngrokPid": 26921
 }
