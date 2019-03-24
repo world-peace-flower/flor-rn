@@ -26,22 +26,22 @@ export default class Selection extends React.Component {
         id: 1,
         name: "バラ",
         description:
-          "花言葉は「愛」。大切なあの人に贈って、あなたの愛を届けます。",
+          "花言葉は「愛」。目を閉じたときに浮かぶ、あの人へ。",
         imgSrc: require("./assets/rose.jpg")
       },
       {
         id: 2,
         name: "チューリップ",
         description:
-          "花言葉は「愛」。大切なあの人に贈って、あなたの愛を届けます。",
+          "花言葉は「思いやり」。お世話になったあの人へ。",
         imgSrc: require("./assets/rose.jpg")
       },
       {
         id: 3,
-        name: "マリーゴールド",
+        name: "ガーベラ",
         description:
-          "花言葉は「愛」。大切なあの人に贈って、あなたの愛を届けます。",
-        imgSrc: require("./assets/rose.jpg")
+          "花言葉は「希望」。夢を持っているあの人へ。",
+        imgSrc: require("./assets/gerbera.jpg")
       }
     ]
   };
