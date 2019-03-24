@@ -36,7 +36,7 @@ export default class Selection extends React.Component {
         name: "チューリップ",
         description:
           "花言葉は「思いやり」。お世話になったあの人へ。",
-        imgSrc: require("./assets/rose.jpg")
+        imgSrc: require("./assets/tulip.jpg")
       },
       {
         id: 3,
