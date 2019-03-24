@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableHighlight
 } from "react-native";
+import CheckoutModal from './CheckoutModal';
 import styled from "styled-components/native";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
@@ -20,6 +21,7 @@ const Pane = styled.ImageBackground`
 `;
 
 export default class Selection extends React.Component {
+
   state = {
     flowers: [
       {
@@ -43,51 +45,55 @@ export default class Selection extends React.Component {
           "花言葉は「愛」。大切なあの人に贈って、あなたの愛を届けます。",
         imgSrc: require("./assets/rose.jpg")
       }
-    ]
+    ],
+    isOpen: false,
   };
 
   render() {
     return (
-      <ScrollView horizontal pagingEnabled style={{ flex: 1 }}>
-        {this.state.flowers.map(flower => (
-          <Pane key={flower.id} source={flower.imgSrc}>
-            <View style={{ width: "80%" }}>
-              <Text
-                style={{
-                  color: "#fff",
-                  fontSize: 24,
-                  marginBottom: 12,
-                  fontWeight: "bold"
-                }}
-              >
-                {flower.name}
-              </Text>
-              <Text style={{ color: "#fff", marginBottom: 12 }}>
-                {flower.description}
-              </Text>
-
-              <TouchableHighlight
-                onPress={this._onPressButton}
-                underlayColor="white"
-              >
-                <View
+      <>
+        <ScrollView horizontal pagingEnabled style={{ flex: 1 }}>
+          {this.state.flowers.map(flower => (
+            <Pane key={flower.id} source={flower.imgSrc}>
+              <View style={{ width: "80%" }}>
+                <Text
                   style={{
-                    backgroundColor: "rgba(255,255,255,0.5)",
-                    borderRadius: 999,
-                    height: 44,
-                    justifyContent: "center",
-                    alignItems: "center"
+                    color: "#fff",
+                    fontSize: 24,
+                    marginBottom: 12,
+                    fontWeight: "bold"
                   }}
                 >
-                  <Text style={{ color: "#000", fontSize: 18 }}>
-                    この花を選ぶ
-                  </Text>
-                </View>
-              </TouchableHighlight>
-            </View>
-          </Pane>
-        ))}
-      </ScrollView>
+                  {flower.name}
+                </Text>
+                <Text style={{ color: "#fff", marginBottom: 12 }}>
+                  {flower.description}
+                </Text>
+  
+                <TouchableHighlight
+                  onPress={() => {this.setState({ isOpen: true })}}
+                  underlayColor="white"
+                >
+                  <View
+                    style={{
+                      backgroundColor: "rgba(255,255,255,0.5)",
+                      borderRadius: 999,
+                      height: 44,
+                      justifyContent: "center",
+                      alignItems: "center"
+                    }}
+                  >
+                    <Text style={{ color: "#000", fontSize: 18 }}>
+                      この花を選ぶ
+                    </Text>
+                  </View>
+                </TouchableHighlight>
+              </View>
+            </Pane>
+          ))}
+        </ScrollView>
+        <CheckoutModal isOpen={this.state.isOpen}/>
+      </>
     );
   }
 }
