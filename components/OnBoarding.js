@@ -32,7 +32,10 @@ const styles = StyleSheet.create({
 });
 
 class OnBoarding extends React.Component {
-  state = { isOpen: AsyncStorage.getItem("hasDoneOnBoarding") == null };
+  state = {
+    isOpen: true
+    // AsyncStorage.getItem("hasDoneOnBoarding") == null
+  };
 
   render() {
     return (
@@ -61,7 +64,7 @@ class OnBoarding extends React.Component {
               color="#DE87BB"
               onPress={() => {
                 this.setState({ isOpen: false });
-                AsyncStorage.setItem("hasDoneOnBoarding", "true");
+                // AsyncStorage.setItem("hasDoneOnBoarding", "true");
               }}
             />
           </Pane>
