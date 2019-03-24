@@ -1,5 +1,12 @@
 import React from "react";
-import { ScrollView, Text, Button, Dimensions, Image, StyleSheet } from "react-native";
+import {
+  ScrollView,
+  Text,
+  Button,
+  Dimensions,
+  AsyncStorage,
+  StyleSheet
+} from "react-native";
 import styled from "styled-components/native";
 import Modal from "react-native-modalbox";
 
@@ -16,16 +23,16 @@ const styles = StyleSheet.create({
   stretch: {
     width: 100,
     height: 77,
-    margin: 20,
+    margin: 20
   },
   message: {
     fontSize: 15,
-    margin: 8,
+    margin: 8
   }
 });
 
 class OnBoarding extends React.Component {
-  state = { isOpen: true };
+  state = { isOpen: AsyncStorage.getItem("hasDoneOnBoarding") == null };
 
   render() {
     return (
@@ -52,7 +59,10 @@ class OnBoarding extends React.Component {
             <Button
               title="はじめる"
               color="#DE87BB"
-              onPress={() => this.setState({ isOpen: false })}
+              onPress={() => {
+                this.setState({ isOpen: false });
+                AsyncStorage.setItem("hasDoneOnBoarding", "true");
+              }}
             />
           </Pane>
         </ScrollView>
